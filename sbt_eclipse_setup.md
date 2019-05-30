@@ -217,3 +217,5 @@ testing
    https://alvinalexander.com/scala/sbt-how-to-compile-run-package-scala-project
 
 
+   https://www.scala-sbt.org/release/docs/Command-Line-Reference.html
+
