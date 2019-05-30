@@ -2,6 +2,7 @@
 
 1) Install SBT in mac ```brew install sbt```
 
+
 2) Setup the Project
 
 ```
@@ -81,9 +82,11 @@ build.sbt		project
 
 ```
 
-** Whenever there is any change to build.sbt or files under project folder run sbt eclipse **
+**Whenever there is any change to build.sbt or files under project folder run sbt eclipse**
+
 
 3) Import the project to Eclipse
+
 
 4) Add the src and test folders
 
@@ -146,6 +149,7 @@ build.sbt	project		target
 
 ```
 
+
 5) Create a sample scala program under src/main/scala and compile/run/package
 
 ```
@@ -205,7 +209,11 @@ testing
 
 
 ## Reference:
+
+
    https://github.com/sbt/sbteclipse
+
+
    https://alvinalexander.com/scala/sbt-how-to-compile-run-package-scala-project
 
 
