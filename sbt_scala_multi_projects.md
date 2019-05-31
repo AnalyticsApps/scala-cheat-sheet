@@ -1,4 +1,4 @@
-# Setup Scala Multiple project and project dependency
+# Setup Scala multiple project and project dependency
 
 
 
