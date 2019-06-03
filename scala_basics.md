@@ -106,13 +106,15 @@ Example 2:
 4) Break
 
 	```
+
 	import util.control.Breaks._
-    	for (i <- 1 to 10) {
-        breakable {
-            if (i % 2 == 0) break
-            ….
-        }
-    	}
+	for (i <- 1 to 10) {
+	breakable {
+		if (i % 2 == 0) break
+	 ......
+	}
+	}
+
 	```
 
 5) Match operation
