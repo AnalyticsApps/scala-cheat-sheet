@@ -96,7 +96,7 @@ Example 2:
 
 ### Functions
 
-Scala function's name can have characters like +, ++, ~, &,-, --, \, /, :, etc.
+1) Scala function's name can have characters like +, ++, ~, &,-, --, \, /, :, etc.
 Scala allows you to define functions inside a function and functions defined inside other functions are called local functions.
 
 	
@@ -110,7 +110,7 @@ Scala allows you to indicate that the last parameter to a function may be repeat
 	// “args: String*" is actually Array[String] - Variable Argument / Default values
 	def empDetails( id: Int = 50, args:String* ) = { …. }
 
-Partly applied function 
+2) Partly applied function 
 
 	val date = new Date
      val logProcess = logAnalysis(date, _ : String)
@@ -121,11 +121,11 @@ Partly applied function
 	def logAnalysis(date: Date, message: String) = { … }
 
 
-Named Argument
+3) Named Argument
 
 	printAB(b = 5, a = 7)
 
-Higher-Order Function - take other functions as argument, or whose return type is a function.
+4) Higher-Order Function - take other functions as argument, or whose return type is a function.
 
 	println( apply( getDisp, 10) )
 
@@ -134,7 +134,7 @@ Higher-Order Function - take other functions as argument, or whose return type i
 	def getDisp[A](x: A) = "[" + x.toString() + "]"
 
 
-Anonymous Functions
+5) Anonymous Functions
 
 	var inc = (x:Int) => x+1
 	var x = inc(7)-1
@@ -143,7 +143,7 @@ Anonymous Functions
 	var mul = (x: Int, y: Int) => x*y
 
 
-Currying Function - Currying is a means of transforming a function that takes more than one argument into a chain of calls to functions, each of which takes a single argument. 
+6) Currying Function - Currying is a means of transforming a function that takes more than one argument into a chain of calls to functions, each of which takes a single argument. 
 
 	We are taking this approach because our vat and serviceCharge will not change very often. So, let's use currying to split our method. 
 	We have reduced our method from accepting 3 parameters to accept one parameter. So, we have split our method in such a way that we don't have to provide all the arguments at the same time. 
