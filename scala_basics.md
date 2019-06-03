@@ -243,6 +243,23 @@ Example 2:
 
 	```
 
+### Tuple
+
+	```
+
+	val t = new Tuple3(1, "hello",20.2356)
+	val t = (1, "hello",20.2356)
+	val sum = t._1 + t._3
+
+	// Iterate a tuple
+    	val t = (4,3,2,1)
+    	t.productIterator.foreach{ i => println("Value = " + i )} 
+
+	// To String
+	t.toString()
+
+
+	```
 
 ### Exception Handling
 
@@ -272,6 +289,17 @@ Example 2:
 
 	```
 
+Throwing Exception 
+
+	```
+
+		def person(age:Int){
+			if(age!=15)
+				throw new Exception("Wait a little")
+			else println("Enjoy your quinceanera")
+		}
+
+	```
 
 
 ### Functions
@@ -647,6 +675,25 @@ Solution 2: you can also write first statement in your trait like “this:<Limit
 
 	```
 
+4) Constructor Overloading
+
+	```
+	
+		class Vehicle(model:String,color:String){
+
+			def this(model:String){
+				this(model,"Red")
+			}
+
+			def disp(){
+				println(s"Model $model Color: $color")
+			}
+		}
+		
+		var vec = new Vehicle("Hundai")
+		vec.disp()	
+
+	```
 
 ### File I/O
 
@@ -671,10 +718,17 @@ Solution 2: you can also write first statement in your trait like “this:<Limit
       writer.close()
 
 
+      import scala.io.Source	
       val s1 = Source.fromFile("data.txt").mkString
 
 
       Source.fromFile("data.txt").getLines.foreach { x => println(x) }
+
+
+      import scala.io.Source
+      val it=Source.fromFile("Demo.txt").getLines()
+      while(it.hasNext)
+         println(it.next())
 
 
       ```
