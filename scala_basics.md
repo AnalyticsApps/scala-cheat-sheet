@@ -2,7 +2,6 @@
 
 ## Simple Scala Code
 
-	```
 
 Example 1:
 
@@ -27,7 +26,7 @@ Example 2:
 
 	}
 
-	```
+
 
 ### Data Types
 
@@ -493,7 +492,7 @@ Solution 2: you can also write first statement in your trait like “this:<Limit
 
 ## Reference:
 
-	https://alvinalexander.com/scala/
-	https://www.tutorialspoint.com/scala
+https://alvinalexander.com/scala/
+https://www.tutorialspoint.com/scala
 
 
