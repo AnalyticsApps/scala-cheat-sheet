@@ -34,7 +34,8 @@ Example 2:
 	String
 	Boolean
 	Unit
-	Null / Nothing / Any / AnyRef
+	Null / Nothing / 
+	Any / AnyVal / AnyRef
 
 
 
@@ -171,6 +172,20 @@ Example 2:
 
 	int hashCode()
 
+	Boolean endsWith(String suffix)
+
+	Boolean equals(Object anObject)
+
+	Boolean equalsIgnoreCase(String anotherString)
+
+	int indexOf(String str)
+
+	String replaceAll(String regex, String replacement)
+
+	String toLowerCase()
+
+	String trim()
+
 	String Interpolator
 	println(s “Hello, $name”)
 	println(s “1 + 1 = ${1 + 1}”)
@@ -199,7 +214,7 @@ Example 2:
      	 }
 
 
-
+	import Array.concat
       	var myArr1 = Array(1.9, 2.9, 3.4, 3.5)
       	var myArr2 = Array(8.9, 7.9, 0.4, 1.5)
       	var myArr3 =  concat( myArr1, myArr2)
@@ -363,6 +378,24 @@ The variables that are used in function but are neither local variables nor form
 
 	```
 
+9) Field Overriding - You can only override val fields; this won’t work with vars. This is because we can only read vals, but we can both read and write vars. 
+
+	```
+
+	class Vehicle{
+		val wheels=0
+	}
+
+	class Car extends Vehicle{
+		override val wheels=4
+		def show(){
+			println("The car has "+wheels+" wheels")
+		}
+	}
+
+	```
+
+
 ### Closure
 
 A closure is a function, whose return value depends on the value of one or more variables declared outside this function.
@@ -407,6 +440,7 @@ Example 2:
 ### Trait
 
 1) Traits are used to share interfaces and fields between classes. They are similar to Java 8’s interfaces. Classes and objects can extend traits but traits cannot be instantiated and therefore have no parameters.
+
 
 
 	```
@@ -476,6 +510,34 @@ Example 2:
 
 	```
 
+4) Trait with multiple inheritance
+
+	```
+
+           trait A{
+                   var length:Int= _
+                   def action={
+                     length=length+5
+                  }
+             }
+
+           trait B{
+                   var height:Int = _
+                   def action={
+                     height = height + 1
+                  }
+             }
+           class C extends A with B{
+                   length=3;
+                   height+=6;
+                   override def action={
+                            super[A].action
+                            super[B].action
+                   }
+              }
+
+	```
+
 4) You can implement the default methods in Trait.
 
 	```
@@ -528,6 +590,47 @@ Solution 2: you can also write first statement in your trait like “this:<Limit
 
 	```
 
+
+### Class
+
+
+1) Companion Object: A Scala companion object is an object with the same name as a class. 
+
+	```
+
+	class CompanionClass{
+		def greet(){
+			println("Hello")
+    		}
+	}
+
+	object CompanionObject{
+		def main(args:Array[String]){
+			new CompanionClass().greet()
+		}
+	}
+
+	```
+
+2) Case Class: Case Class is like a regular class, except it is good for modeling immutable data.
+
+	```
+	case class Song(title:String,artist:String,track:Int)
+
+	//Shallow Copy 
+	val chandelier1=chandelier.copy()
+	val chandelier2=chandelier.copy(title=chandelier.artist,artist="Sia")
+
+	```
+3) Abstract Class
+
+	```
+	abstract class Person{
+		def greet()
+		def greethello()
+	}
+
+	```
 
 
 ### File I/O
