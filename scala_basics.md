@@ -113,7 +113,7 @@ Scala allows you to indicate that the last parameter to a function may be repeat
 2) Partly applied function 
 
 	val date = new Date
-     val logProcess = logAnalysis(date, _ : String)
+	val logProcess = logAnalysis(date, _ : String)
 	logProcess(“HTTP Message” )
 	logProcess(“Apache Msg” )
 
