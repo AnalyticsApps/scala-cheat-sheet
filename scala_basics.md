@@ -37,7 +37,7 @@ Example 2:
 ### Control Structure
 
 1) IF Condition:
-
+	```
 	If(condition1) {
 	  ….
 	} else if(condition 2){
@@ -45,6 +45,7 @@ Example 2:
 	} else  {
 
 	}
+	```
 
 2) WHILE / Do .. Whille Loop
 
