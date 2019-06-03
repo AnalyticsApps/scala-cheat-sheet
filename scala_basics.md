@@ -2,7 +2,7 @@
 
 ## Simple Scala Code
 
-<u>Example 1:</u>
+Example 1:
 
 	package com.test
 
@@ -11,7 +11,7 @@
 	}
 
 
-**Example 2:**
+Example 2:
 
 	package com.test
 
@@ -36,7 +36,7 @@
 
 ### Control Structure
 
-IF Condition:
+1) IF Condition:
 
 	If(condition1) {
 	  ….
@@ -46,7 +46,7 @@ IF Condition:
 
 	}
 
-WHILE / Do .. Whille Loop
+2) WHILE / Do .. Whille Loop
 
 	while(condition) {
 	   …..
@@ -58,7 +58,7 @@ WHILE / Do .. Whille Loop
 	} while(condition)
 
 
-For Loop
+3) For Loop
 	
 	var ind = 0
 	for (ind <- 6 to 12) { …. }
@@ -83,7 +83,7 @@ For Loop
 	       if id > 3; if id != 11 ) { ….. } yield id
 
 
-Break
+4) Break
 
     import util.control.Breaks._
     for (i <- 1 to 10) {
