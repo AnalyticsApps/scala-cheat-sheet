@@ -309,9 +309,12 @@ A closure is a function, whose return value depends on the value of one or more 
 
 Example 1:
 
+
 	```
+
 	var factor = 3
 	val multiplier = (i:Int) => i * factor
+
 	```
 
 Example 2:
