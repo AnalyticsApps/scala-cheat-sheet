@@ -37,6 +37,11 @@ Example 2:
 	Null / Nothing / Any / AnyRef
 
 
+
+	Multiple variable declaration
+	val (empId:Int, empName:String) = (1,"John")
+
+
 ### Control Structure
 
 1) IF Condition:
@@ -112,6 +117,27 @@ Example 2:
 	case 2 => "two"
 	case _ => "many"
    	}
+
+
+   	def matchAge(age: Any): Any = age match {
+   	case 7 => "Age is Seven"
+   	case "eight" => 8
+   	case y: Int => "Age is greater than 7"
+   	case _ => "Age is greater than 10"
+   	}
+
+
+
+   	case class Student(id:Int, name: String, age: Int)
+   	   	studInstance match {
+   	   	   	case Student(1,"Adam", 12) => println("Hello Adam")
+   	   	   	case Student(3,"Reena", 16) => println("Hello Reena")
+   	   	   	case Student(id,name, age) =>
+   	   	   	   	println("Id: " + id + " Age: " + age + " Name: " + name)
+   	   	}
+
+
+
 	```
 
 
@@ -230,14 +256,32 @@ Scala allows you to define functions inside a function and functions defined ins
 	}
 	```
 
-Scala allows you to indicate that the last parameter to a function may be repeated. This allows clients to pass variable length argument lists to the function. 
+2) Scala allows you to indicate that the last parameter to a function may be repeated. This allows clients to pass variable length argument lists to the function. 
 
 	```
 	// “args: String*" is actually Array[String] - Variable Argument / Default values
 	def empDetails( id: Int = 50, args:String* ) = { …. }
+
+
 	```
 
-2) Partly applied function 
+
+If we have a requirement like we need to use a Scala’s VarArgs method in a Java Program, then we should mark that Scala’s VarArgs method with @varargs annotation
+
+
+	```
+
+	@varargs def display(str: String*) {
+	    str.map(println)
+	  }
+
+	In java class, we can call the above method - 	ScalaVarArgsAndNonVarArgsDemo.display("Rams", "Scala")
+
+
+	```
+
+
+3) Partly applied function 
 
 	```
 	val date = new Date
@@ -250,7 +294,7 @@ Scala allows you to indicate that the last parameter to a function may be repeat
 
 	```
 
-3) Named Argument
+4) Named Argument
 
 	```
 
@@ -258,7 +302,7 @@ Scala allows you to indicate that the last parameter to a function may be repeat
 
 	```
 
-4) Higher-Order Function - take other functions as argument, or whose return type is a function.
+5) Higher-Order Function - take other functions as argument, or whose return type is a function.
 
 	```
 	println( apply( getDisp, 10) )
@@ -269,7 +313,7 @@ Scala allows you to indicate that the last parameter to a function may be repeat
 
 	```
 
-5) Anonymous Functions
+6) Anonymous Functions
 
 	```
 
@@ -281,7 +325,7 @@ Scala allows you to indicate that the last parameter to a function may be repeat
 	```
 
 
-6) Currying Function - Currying is a means of transforming a function that takes more than one argument into a chain of calls to functions, each of which takes a single argument. 
+7) Currying Function - Currying is a means of transforming a function that takes more than one argument into a chain of calls to functions, each of which takes a single argument. 
 
 	We are taking this approach because our vat and serviceCharge will not change very often. So, let's use currying to split our method. 
 	We have reduced our method from accepting 3 parameters to accept one parameter. So, we have split our method in such a way that we don't have to provide all the arguments at the same time. 
@@ -304,6 +348,20 @@ Scala allows you to indicate that the last parameter to a function may be repeat
 
 	```
 
+8) Free Variables
+
+The variables that are used in function but are neither local variables nor formal parameters to the function are called free variables.
+
+
+	```
+
+	class Marks(m1: Int) {
+
+		var marks : Int = m1
+	}
+
+
+	```
 
 ### Closure
 
@@ -381,6 +439,11 @@ Example 2:
 2) If a class extends a trait but does not implement the methods defined in that trait, it must be declared abstract:
 
 	```
+
+	trait BaseSoundPlayer {
+	  def play
+	  def close
+	}	
 
 	// must be declared abstract because it does not implement BaseSoundPlayer methods
 	abstract class JavaSoundPlayer extends BaseSoundPlayer {
@@ -474,6 +537,7 @@ Solution 2: you can also write first statement in your trait like “this:<Limit
 
       print("Please enter your input : " )
       val line = Console.readLine
+	val num = Console.readInt;
 
 
 
@@ -488,6 +552,13 @@ Solution 2: you can also write first statement in your trait like “this:<Limit
       writer.write("Hello Scala")
       writer.close()
 
+
+      val s1 = Source.fromFile("data.txt").mkString
+
+
+      Source.fromFile("data.txt").getLines.foreach { x => println(x) }
+
+
       ```
 
 ## Reference:
@@ -495,6 +566,8 @@ Solution 2: you can also write first statement in your trait like “this:<Limit
 https://alvinalexander.com/scala/
 
 https://www.tutorialspoint.com/scala
+
+https://www.journaldev.com/7497
 
 
 
