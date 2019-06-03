@@ -49,6 +49,8 @@ Example 2:
 
 2) WHILE / Do .. Whille Loop
 
+	```
+
 	while(condition) {
 	   …..
 	}
@@ -58,9 +60,11 @@ Example 2:
 	  …..
 	} while(condition)
 
+	```
 
 3) For Loop
 	
+	```
 	var ind = 0
 	for (ind <- 6 to 12) { …. }
 
@@ -83,16 +87,19 @@ Example 2:
 	var res = 	for( id <- idList
 	       if id > 3; if id != 11 ) { ….. } yield id
 
+	```
 
 4) Break
 
-    import util.control.Breaks._
-    for (i <- 1 to 10) {
+	```
+	import util.control.Breaks._
+    	for (i <- 1 to 10) {
         breakable {
             if (i % 2 == 0) break
             ….
         }
-    }
+    	}
+	```
 
 
 ### Functions
@@ -100,19 +107,23 @@ Example 2:
 1) Scala function's name can have characters like +, ++, ~, &,-, --, \, /, :, etc.
 Scala allows you to define functions inside a function and functions defined inside other functions are called local functions.
 
-	
+	```	
 	def functionName ([list of parameters]) : [return type] = {
    	  function body
        return [expr]
 	}
+	```
 
 Scala allows you to indicate that the last parameter to a function may be repeated. This allows clients to pass variable length argument lists to the function. 
 
+	```
 	// “args: String*" is actually Array[String] - Variable Argument / Default values
 	def empDetails( id: Int = 50, args:String* ) = { …. }
+	```
 
 2) Partly applied function 
 
+	```
 	val date = new Date
 	val logProcess = logAnalysis(date, _ : String)
 	logProcess(“HTTP Message” )
@@ -121,27 +132,37 @@ Scala allows you to indicate that the last parameter to a function may be repeat
 
 	def logAnalysis(date: Date, message: String) = { … }
 
+	```
 
 3) Named Argument
 
+	```
+
 	printAB(b = 5, a = 7)
+
+	```
 
 4) Higher-Order Function - take other functions as argument, or whose return type is a function.
 
+	```
 	println( apply( getDisp, 10) )
 
 	def apply(f: Int => String, v: Int) = f(v)
 
 	def getDisp[A](x: A) = "[" + x.toString() + "]"
 
+	```
 
 5) Anonymous Functions
+
+	```
 
 	var inc = (x:Int) => x+1
 	var x = inc(7)-1
 
 	var userDir = () => { System.getProperty("user.dir") }
 	var mul = (x: Int, y: Int) => x*y
+	```
 
 
 6) Currying Function - Currying is a means of transforming a function that takes more than one argument into a chain of calls to functions, each of which takes a single argument. 
@@ -150,6 +171,7 @@ Scala allows you to indicate that the last parameter to a function may be repeat
 	We have reduced our method from accepting 3 parameters to accept one parameter. So, we have split our method in such a way that we don't have to provide all the arguments at the same time. 
 	I can provide these arguments whenever they are available. This transformation is called currying.
 
+	```
 	scala> def finalPriceCurried(vat: Double)(serviceCharge: Double)(productPrice: Double): Double = {
 	     | productPrice + productPrice*serviceCharge/100 + productPrice*vat/100
 	     | }
@@ -164,7 +186,7 @@ Scala allows you to indicate that the last parameter to a function may be repeat
 	scala> val finalProductPrice = serviceChargeApplied(120)
 	finalProductPrice: Double = 159.0
 
-
+	```
 
 
 
