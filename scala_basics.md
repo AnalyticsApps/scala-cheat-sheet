@@ -2,7 +2,7 @@
 
 ## Simple Scala Code
 
-_Example 1:_**
+<u>Example 1:</u>
 
 	package com.test
 
