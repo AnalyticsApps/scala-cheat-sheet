@@ -109,10 +109,10 @@ Example 2:
 
 	import util.control.Breaks._
 	for (i <- 1 to 10) {
-	breakable {
-		if (i % 2 == 0) break
-	 ......
-	}
+		breakable {
+			if (i % 2 == 0) break
+			 ......
+		}
 	}
 
 	```
