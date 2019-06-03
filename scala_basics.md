@@ -2,6 +2,8 @@
 
 ## Simple Scala Code
 
+	```
+
 Example 1:
 
 	package com.test
@@ -24,6 +26,8 @@ Example 2:
 	  }
 
 	}
+
+	```
 
 ### Data Types
 
