@@ -319,6 +319,7 @@ Example 1:
 
 Example 2:
 
+
 	```
 
 	scala> var age=22
@@ -346,6 +347,7 @@ Example 2:
 
 1) Traits are used to share interfaces and fields between classes. They are similar to Java 8’s interfaces. Classes and objects can extend traits but traits cannot be instantiated and therefore have no parameters.
 
+
 	```
 
 	trait Iterator[A] {
@@ -369,6 +371,7 @@ Example 2:
 	val iterator = new IntIterator(10)
 	iterator.next()  // returns 0
 	iterator.next()  // returns 1
+
 
 	```
 
@@ -484,6 +487,9 @@ Solution 2: you can also write first statement in your trait like “this:<Limit
 
       ```
 
+## Reference:
 
-https://alvinalexander.com/scala/
-https://www.tutorialspoint.com/scala
+	https://alvinalexander.com/scala/
+	https://www.tutorialspoint.com/scala
+
+
