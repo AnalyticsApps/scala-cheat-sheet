@@ -46,7 +46,9 @@ Example 2:
 ### Control Structure
 
 1) IF Condition:
+
 	```
+
 	If(condition1) {
 	  ….
 	} else if(condition 2){
@@ -54,6 +56,9 @@ Example 2:
 	} else  {
 
 	}
+
+	val max = if (x > y) x else y
+
 	```
 
 2) WHILE / Do .. Whille Loop
@@ -137,6 +142,14 @@ Example 2:
    	   	   	   	println("Id: " + id + " Age: " + age + " Name: " + name)
    	   	}
 
+
+
+
+    	stock match {
+    		case x if (x.symbol == "XYZ" && x.price < 20) => buy(x)
+    		case x if (x.symbol == "XYZ" && x.price > 50) => sell(x)
+    		case x => doNothing(x)
+    	}
 
 
 	```
