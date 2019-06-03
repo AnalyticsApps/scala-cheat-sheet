@@ -1,8 +1,8 @@
 # Basic Scala tutorials
 
-### Simple Scala Code
+## Simple Scala Code
 
-**Example 1:**
+_Example 1:_**
 
 	package com.test
 
