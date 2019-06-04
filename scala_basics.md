@@ -380,7 +380,9 @@ If we have a requirement like we need to use a Scala’s VarArgs method in a Jav
 
 	var userDir = () => { System.getProperty("user.dir") }
 	var mul = (x: Int, y: Int) => x*y
+
 	```
+
 
 
 7) Currying Function - Currying is a means of transforming a function that takes more than one argument into a chain of calls to functions, each of which takes a single argument. 
