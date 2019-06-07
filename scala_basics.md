@@ -22,6 +22,8 @@ Example 2:
 
 	    println("Hello World !!")
 
+	    printf("Age = %d", 24) 
+
 	  }
 
 	}
@@ -41,6 +43,50 @@ Example 2:
 
 	Multiple variable declaration
 	val (empId:Int, empName:String) = (1,"John")
+
+
+1) Scala Option: is referred to a carrier of single or no element for a stated type. When a method returns a value which can even be null then Option is utilized
+
+	Example 1:
+
+	scala> val name = Map("Nish" -> "Tester")
+	name: scala.collection.immutable.Map[String,String] = Map(Nish -> Tester)
+
+	scala> name.get("Nish")
+	res11: Option[String] = Some(Tester)
+
+	scala> name.get("John")
+	res12: Option[String] = None
+
+
+	Example 2:
+	scala> def ext(n: Option[String]) = n match {
+     		| case Some(s) => (s) 
+    	 	| case None => ("key not found") 
+     		| }
+		ext: (n: Option[String])String
+
+	scala> ext(name.get("John"))
+		res13: String = key not found
+
+	scala> ext(name.get("Nish"))
+		res14: String = Tester
+
+getOrElse(): This method is utilized in returning either a value if it is present or a default value when its not present
+
+	val some:Option[Int] = Some(15) 
+  
+        // Using None class 
+        val none:Option[Int] = None  
+  
+        // Applying getOrElse method 
+        val x = some.getOrElse(0) 
+        val y = none.getOrElse(17) 
+
+isEmpty(): This method is utilized to check if the Option has a value or not.
+	
+	val x = some.isEmpty 
+        val y = none.isEmpty 
 
 
 ### Control Structure
@@ -80,8 +126,10 @@ Example 2:
 	
 	```
 	var ind = 0
+	// includes 6 to 12
 	for (ind <- 6 to 12) { …. }
 
+	// starts from 6 to 11
 	for (ind <- 6 until 12) { …. }
 
 
@@ -677,7 +725,7 @@ Solution 2: you can also write first statement in your trait like “this:<Limit
 
 	```
 
-4) Constructor Overloading
+4) Constructor Overloading or Auxiliary Constructor 
 
 	```
 	
@@ -706,6 +754,7 @@ Solution 2: you can also write first statement in your trait like “this:<Limit
       val line = Console.readLine
 	val num = Console.readInt;
 
+	val result = scala.io.StdIn.readLine()
 
 
       import scala.io.Source
@@ -742,6 +791,8 @@ https://alvinalexander.com/scala/
 https://www.tutorialspoint.com/scala
 
 https://www.journaldev.com/7497
+
+https://www.geeksforgeeks.org/scala-programming-language/
 
 
 
