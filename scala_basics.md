@@ -50,34 +50,55 @@ Example 2:
 	val (empId:Int, empName:String) = (1,"John")
 
 
+
 1) Scala Option: is referred to a carrier of single or no element for a stated type. When a method returns a value which can even be null then Option is utilized
 
-	Example 1:
+Example 1:
+
+	```
 
 	scala> val name = Map("Nish" -> "Tester")
+
 	name: scala.collection.immutable.Map[String,String] = Map(Nish -> Tester)
 
 	scala> name.get("Nish")
+
 	res11: Option[String] = Some(Tester)
 
 	scala> name.get("John")
+
 	res12: Option[String] = None
 
 
-	Example 2:
+	```
+
+Example 2:
+
+	```
+
+
 	scala> def ext(n: Option[String]) = n match {
      		| case Some(s) => (s) 
     	 	| case None => ("key not found") 
      		| }
+
 		ext: (n: Option[String])String
 
 	scala> ext(name.get("John"))
+
 		res13: String = key not found
 
 	scala> ext(name.get("Nish"))
+
 		res14: String = Tester
 
+	```
+
+
+
 getOrElse(): This method is utilized in returning either a value if it is present or a default value when its not present
+
+	```
 
 	val some:Option[Int] = Some(15) 
   
@@ -88,28 +109,43 @@ getOrElse(): This method is utilized in returning either a value if it is presen
         val x = some.getOrElse(0) 
         val y = none.getOrElse(17) 
 
+	```
+
 isEmpty(): This method is utilized to check if the Option has a value or not.
 	
+	```
+
 	val x = some.isEmpty 
         val y = none.isEmpty 
 
+	```
 
 2) Scala Casting: 
 
+	```
+
 	val a = 10
+
         // Casting value of a into float 
         val b = a.asInstanceOf[Float] 
 
+	```
 
 3) Scala Final
 
+	```
+
 	// Final Variable declaration
+
 	// define final variable 
+
 	final val area:Int = 60
 
 
 	// Final method declaration
+
 	// Define final method 
+
 	final def CalArea(){  .... } 
 
 
@@ -118,6 +154,7 @@ isEmpty(): This method is utilized to check if the Option has a value or not.
 	{  .... }
 
 
+	```
 
 3) StringBuilder is utilized to append input data to the internal buffer. We can perform numerous operations with the support of methods on the StringBuilder. 
 
