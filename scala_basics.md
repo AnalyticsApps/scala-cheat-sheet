@@ -8,7 +8,12 @@ Example 1:
 	package com.test
 
 	object HelloWorld extends App {
-	  println("Hello World")
+	  	// conditions stated 
+    		if (args.length == 1) 
+    		{  
+        		// Displays this as output if the command line arguments are equal to one 
+        		println("Student: ${args(0)}") 
+    		} 
 	}
 
 
@@ -87,6 +92,63 @@ isEmpty(): This method is utilized to check if the Option has a value or not.
 	
 	val x = some.isEmpty 
         val y = none.isEmpty 
+
+
+2) Scala Casting: 
+
+	val a = 10
+        // Casting value of a into float 
+        val b = a.asInstanceOf[Float] 
+
+
+3) Scala Final
+
+	// Final Variable declaration
+	// define final variable 
+	final val area:Int = 60
+
+
+	// Final method declaration
+	// Define final method 
+	final def CalArea(){  .... } 
+
+
+	// If class is final, it cannot be inherited
+	final class Shapes 
+	{  .... }
+
+
+
+3) StringBuilder is utilized to append input data to the internal buffer. We can perform numerous operations with the support of methods on the StringBuilder. 
+
+
+	```
+
+       	// Creating StringBuilder  
+        val x = new StringBuilder("Author")
+
+        // Appending character  
+        val y = (x += 's') 
+
+        // Appending String  
+        val y = (x ++= " of GeeksforGeeks") 
+
+	val y = x.append(800)
+
+        // Resetting the content  
+        val y = x.clear()  
+
+        // Deleting characters  
+        val r = q.delete(1, 3)
+
+        // inserting strings  
+        val r = q.insert(4, "is a " )
+
+        // Applying conversion operation  
+        val r = q.toString 
+
+
+	```
 
 
 ### Control Structure
@@ -329,6 +391,10 @@ isEmpty(): This method is utilized to check if the Option has a value or not.
 	         case ex: IOException => {
 	            println("IO Exception")
 	         }
+	         case ex: Throwable => {
+	            println("unknown exception"+ex)
+	         }
+
 	      } finally {
 	         println("Exiting finally...")
 	      }
@@ -349,6 +415,40 @@ Throwing Exception
 
 	```
 
+Either : The Either has two children which are named as Right and Left where, Right is similar to the Some class and Left is same as None class. Left is utilized for the failure where, we can return the error occurred inside the child Left of the Either and Right is utilized for Success.
+
+
+	```
+
+    	// Defining a method and applying Either 
+	    def Division(q: Int, r: Int): Either[String, Int] =
+	    { 
+	        if (q == 0)  
+            		// Left child for failure  
+            		Left("Division not possible.") 
+        	else
+            		// Right child for success 
+            		Right(q / r) 
+    	    } 
+  
+	
+           // Assigning values  
+    	   val x = Division(4, 2) 
+  
+    	  // Applying pattern matching 
+   	   x match
+   	   { 
+   	   	case Left(l) =>      
+   	   		// Displays this if the division is not possible 
+   	   		println("Left: " + l) 
+      
+   	   	case Right(r) =>     
+   	   		// Displays this if division is possible 
+   	   		println("Right: " + r) 
+   	   } 
+
+
+	```
 
 ### Functions
 
@@ -377,7 +477,8 @@ If we have a requirement like we need to use a Scala’s VarArgs method in a Jav
 
 	```
 
-	@varargs def display(str: String*) {
+	@varargs 
+	def display(str: String*) {
 	    str.map(println)
 	  }
 
@@ -428,6 +529,9 @@ If we have a requirement like we need to use a Scala’s VarArgs method in a Jav
 
 	var userDir = () => { System.getProperty("user.dir") }
 	var mul = (x: Int, y: Int) => x*y
+
+	var myfc1 = (str1:String, str2:String) => str1 + str2
+	var myfc2 = (_:String) + (_:String)
 
 	```
 
@@ -532,7 +636,7 @@ Example 2:
 
 ### Trait
 
-1) Traits are used to share interfaces and fields between classes. They are similar to Java 8’s interfaces. Classes and objects can extend traits but traits cannot be instantiated and therefore have no parameters.
+1) Traits are used to share interfaces and fields between classes. They are similar to Java 8’s interfaces. Classes and objects can extend traits but traits cannot be instantiated and therefore have no parameters. one trait can inherit another trait by using a extends keyword.
 
 
 
@@ -683,6 +787,141 @@ Solution 2: you can also write first statement in your trait like “this:<Limit
 
 	```
 
+6) Adding Trait to an Object Instance: We can also add traits to an object instance. Or in other words, We can directly add a trait in the object of a class without inheriting that trait into the class. 
+
+	```
+
+	class MyClass{} 
+
+	trait MyTrait 
+	{ 
+	    println("Welcome to MyTrait"); 
+	} 
+
+	object Main  
+	{ 
+      
+	    // Main method 
+	    def main(args: Array[String]) 
+	    { 
+          
+	        // Here MyTrait is added to the object instance of MyClass 
+        	val obj = new MyClass with MyTrait; 
+    	    } 
+	} 
+
+
+	```
+
+
+### Trait Traversable
+
+1) foreach - which can traverse over all the elements of the Collection.
+
+	```
+	val x = Array("GEEKS", "FOR", "GEEKS") 
+	x.foreach { E => 
+			val y = E.toLowerCase
+			println(y)
+		  }
+
+	```
+2) ++ - adds two Traversables together or adds each of the elements of an iterator to a Traversable.
+
+	```
+
+	val x = Set(7, 8, 9, 10) 
+        val y = List(1, 5, 8, 18) 
+  
+        //performing addition operation 
+        val s1 = x ++ y 
+        val s2 = y ++ x 
+
+	```
+
+3) Map - operations are map, flatMap, and collect. Create a new collection by assigning a few function to the elements of Scala collection.
+
+	```
+
+	 val x = Set(8, 9, 5, 10) 
+        // Applying map operation 
+        val y = x.map(_ * 9) 
+
+
+
+	val q = List(List(7), List(8, 9, 10), List(11, 12, 13))
+	// Applying map operation
+	val r = q.flatMap(_.map(_ + 3)) 
+
+
+
+        val x = List(9, 3, 5, 11, 15, 4) 
+        // Applying map operation  
+        val y = x.collect  
+        { 
+            // Partial function 
+            case z : Int if (z % 3 == 0) => z + 2
+        } 
+
+
+
+	```
+
+4) Conversion operations - converts toList, toSeq, toArray, toStream, toSet, toMap, toIterable, and toIndexedSeq
+
+	```
+	      val q = Set(2, 7, 8, 15, 19)   
+              // Converting Set to an Array 
+              val r = q.toArray  
+
+	      val x = Set("GfG" -> "CS portal", "Nidhi" -> "a Geek")
+	      val y = x.toMap
+
+
+
+	```
+
+5) Size info operations are nonEmpty, isEmpty, hasDefiniteSize, and size.
+
+	```
+
+	val x = Map("gfg" -> "cs", "nidhi" -> "geek")
+
+	val y = x.isEmpty 
+
+	val y = x.nonEmpty 
+
+	val r = x.size 
+
+	// hasDefiniteSize is utilized to check if the Traversable collection has finite elements or not
+	val r = q.hasDefiniteSize 
+
+
+
+	```
+
+6) Element retrieval operations includes last, head, lastOption, headOption, and find. 
+
+	```
+	
+	val x = Set(12, 13, 14, 15)
+	val y = x.lastOption // Output will be Some(15)
+
+	val y = x.last // Output will be 15
+
+	val r = q.head
+
+
+	val y = x.find(_ % 3 == 0) //Output will be last element that is divisible by 3. Here it is 15
+
+
+	val p = List(7, 9, 11, 19, 21)  
+        val q = List()  
+        val r = p.headOption  // Output Some(7)
+        val s = q.headOption  // Output None
+
+
+	```
 
 ### Class
 
