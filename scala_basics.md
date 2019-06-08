@@ -56,7 +56,6 @@ Example 2:
 Example 1:
 
 	```
-
 	scala> val name = Map("Nish" -> "Tester")
 	name: scala.collection.immutable.Map[String,String] = Map(Nish -> Tester)
 
@@ -66,14 +65,11 @@ Example 1:
 	scala> name.get("John")
 	res12: Option[String] = None
 
-
 	```
 
 Example 2:
 
 	```
-
-
 	scala> def ext(n: Option[String]) = n match {
      		| case Some(s) => (s) 
     	 	| case None => ("key not found") 
@@ -85,7 +81,6 @@ Example 2:
 
 	scala> ext(name.get("Nish"))
 		res14: String = Tester
-
 	```
 
 
@@ -93,7 +88,6 @@ Example 2:
 getOrElse(): This method is utilized in returning either a value if it is present or a default value when its not present
 
 	```
-
 	val some:Option[Int] = Some(15) 
   
         // Using None class 
@@ -108,18 +102,16 @@ getOrElse(): This method is utilized in returning either a value if it is presen
 isEmpty(): This method is utilized to check if the Option has a value or not.
 	
 	```
-
 	val x = some.isEmpty 
-        val y = none.isEmpty 
+	val y = none.isEmpty 
 
 	```
 
 2) Scala Casting: 
 
 	```
-
 	val a = 10
-       // Casting value of a into float 
+        // Casting value of a into float 
         val b = a.asInstanceOf[Float] 
 
 	```
@@ -127,14 +119,12 @@ isEmpty(): This method is utilized to check if the Option has a value or not.
 3) Scala Final
 
 	```
-
 	// Final Variable declaration
 	// define final variable 
 	final val area:Int = 60
 
 
 	// Final method declaration
-
 	// Define final method 
 
 	final def CalArea(){  .... } 
@@ -147,11 +137,11 @@ isEmpty(): This method is utilized to check if the Option has a value or not.
 
 	```
 
+
 3) StringBuilder is utilized to append input data to the internal buffer. We can perform numerous operations with the support of methods on the StringBuilder. 
 
 
 	```
-
        	// Creating StringBuilder  
         val x = new StringBuilder("Author")
 
@@ -174,7 +164,6 @@ isEmpty(): This method is utilized to check if the Option has a value or not.
 
         // Applying conversion operation  
         val r = q.toString 
-
 
 	```
 
@@ -442,6 +431,7 @@ Throwing Exception
 		}
 
 	```
+
 
 Either : The Either has two children which are named as Right and Left where, Right is similar to the Some class and Left is same as None class. Left is utilized for the failure where, we can return the error occurred inside the child Left of the Either and Right is utilized for Success.
 
@@ -773,7 +763,6 @@ Example 2:
 	}
 
 	```
-
 
 5) Limiting the subclass in a trait
 
