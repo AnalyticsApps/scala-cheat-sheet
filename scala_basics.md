@@ -58,15 +58,12 @@ Example 1:
 	```
 
 	scala> val name = Map("Nish" -> "Tester")
-
 	name: scala.collection.immutable.Map[String,String] = Map(Nish -> Tester)
 
 	scala> name.get("Nish")
-
 	res11: Option[String] = Some(Tester)
 
 	scala> name.get("John")
-
 	res12: Option[String] = None
 
 
@@ -81,15 +78,12 @@ Example 2:
      		| case Some(s) => (s) 
     	 	| case None => ("key not found") 
      		| }
-
 		ext: (n: Option[String])String
 
 	scala> ext(name.get("John"))
-
 		res13: String = key not found
 
 	scala> ext(name.get("Nish"))
-
 		res14: String = Tester
 
 	```
@@ -125,8 +119,7 @@ isEmpty(): This method is utilized to check if the Option has a value or not.
 	```
 
 	val a = 10
-
-        // Casting value of a into float 
+       // Casting value of a into float 
         val b = a.asInstanceOf[Float] 
 
 	```
@@ -136,9 +129,7 @@ isEmpty(): This method is utilized to check if the Option has a value or not.
 	```
 
 	// Final Variable declaration
-
 	// define final variable 
-
 	final val area:Int = 60
 
 
