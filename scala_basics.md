@@ -753,7 +753,7 @@ Example 2:
 
 	```
 
-4) You can implement the default methods in Trait.
+5) You can implement the default methods in Trait.
 
 	```
 
@@ -764,7 +764,7 @@ Example 2:
 
 	```
 
-5) Limiting the subclass in a trait
+6) Limiting the subclass in a trait
 
 Solution 1:
 
@@ -804,7 +804,7 @@ Solution 2: you can also write first statement in your trait like “this:<Limit
 
 	```
 
-6) Adding Trait to an Object Instance: We can also add traits to an object instance. Or in other words, We can directly add a trait in the object of a class without inheriting that trait into the class. 
+7) Adding Trait to an Object Instance: We can also add traits to an object instance. Or in other words, We can directly add a trait in the object of a class without inheriting that trait into the class. 
 
 	```
 
