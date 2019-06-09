@@ -107,6 +107,46 @@ isEmpty(): This method is utilized to check if the Option has a value or not.
 
 	```
 
+Other operations on Option
+
+
+	```
+
+	scala> val some:Option[Int] = Some(30)
+	some: Option[Int] = Some(30)
+
+
+	scala> some.exists(y => {y % 3 == 0})
+	res47: Boolean = true
+
+ 
+	scala> some.filter(y => {y % 3 == 0})
+	res48: Option[Int] = Some(30)
+
+
+	scala> some.filterNot(y => {y % 3 != 0}) 
+	res49: Option[Int] = Some(30)
+
+
+	scala> val some:Option[Int] = Some(30) 
+	some: Option[Int] = Some(30)
+
+
+	scala> val none:Option[Int] = None
+	none: Option[Int] = None
+
+
+	scala> some.isDefined
+	res50: Boolean = true
+
+
+	scala> none.isDefined 
+	res51: Boolean = false
+
+
+	```
+
+
 2) Scala Casting: 
 
 	```
@@ -138,7 +178,7 @@ isEmpty(): This method is utilized to check if the Option has a value or not.
 	```
 
 
-3) StringBuilder is utilized to append input data to the internal buffer. We can perform numerous operations with the support of methods on the StringBuilder. 
+4) StringBuilder is utilized to append input data to the internal buffer. We can perform numerous operations with the support of methods on the StringBuilder. 
 
 
 	```
@@ -164,6 +204,45 @@ isEmpty(): This method is utilized to check if the Option has a value or not.
 
         // Applying conversion operation  
         val r = q.toString 
+
+	```
+
+4) Scala apply/unapply function
+
+	```
+
+	// Example 1
+	object Foo {
+	  var y = 5
+	  def apply (x: Int) = x + y
+	}
+	Foo (1)
+
+
+
+	// Example 2
+	class MyAdder(x: Int) {
+	  def apply(y: Int) = x + y
+	}
+	val adder = new MyAdder(2)
+	val result = adder(4) // equivalent to x.apply(4)
+
+
+	// Example 3
+	// The apply method is like a constructor which takes arguments and creates an object, whereas 
+	// the unapply takes an object and tries to give back the arguments.
+	object Foo {
+	    def apply(name: String, suffix: String) = name + "." + suffix
+
+ 	   def unapply(name: String): Option[(String, String)] = {
+ 	     //simple argument extractor
+	      val parts = name.split("\\.")
+	      if (parts.length == 2) Some(parts(0), parts(1)) else None
+	    }
+	  }
+	val file = Foo("test", "txt") // returns test.txt
+	val Foo(name) = file // Unapply method is used
+
 
 	```
 
