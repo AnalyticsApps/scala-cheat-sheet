@@ -283,6 +283,58 @@ isEmpty(): This method is utilized to check if the Option has a value or not.
 
 	```
 
+6) Enumeration: Defines a finite set of values specific to the enumeration. 
+
+
+	```
+
+	scala> object Weekday extends Enumeration {
+	     |   val Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, Sunday = Value
+	     | }
+	defined object Weekday
+
+
+	scala> Weekday.Monday
+	res33: Weekday.Value = Monday
+
+
+	scala> Weekday.Monday.toString
+	res34: String = Monday
+
+
+	scala> Weekday.withName("Monday")
+	res35: Weekday.Value = Monday
+
+
+	// Listing all possible values
+	scala> Weekday.values
+	res36: Weekday.ValueSet = Weekday.ValueSet(Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, Sunday)
+
+
+	// Ordering the values.	
+	scala> Weekday.values.toList.sorted
+	res37: List[Weekday.Value] = List(Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, Sunday)
+
+ 
+
+	scala> Weekday.Monday.id
+	res41: Int = 0
+	scala> Weekday.Sunday.id
+	res42: Int = 6
+
+	// Change the id to a specified value
+	scala> object ErrorCodes extends Enumeration {
+	     | val http_ok = Value(200, "OK")
+	     | val internal_error = Value(400, "Server_Error")
+	     | }
+	defined object ErrorCodes
+
+
+	scala> ErrorCodes.http_ok.id
+	res44: Int = 200
+
+
+	```
 
 ### String Operations
 
@@ -939,6 +991,159 @@ Solution 2: you can also write first statement in your trait like “this:<Limit
 
 
 	```
+
+7) Sub-Collection retrieval operations - are slice, drop, dropWhile, filter, filterNot, tail, take, takeWhile, and init. These operations are utilized to return some sub collection.
+
+	```
+
+	val x = List(17, 19, 21, 29, 31)
+	// init retrieves all the elements of the Traversable collection except the last element.
+	val y = x.init
+
+	// tail retrieves all the elements of the Traversable collection except the first element.
+	val y = x.tail 
+
+	// slice will return the elements from the given range of index excluding last index.
+	val y = x.slice(2, 5)
+
+	val y = x.take(2)
+
+	// return all the elements of the collection except the first number of elements given in the argument of drop operation. Output List(29, 31)
+	val y = x.drop(3) 
+
+
+	// dropWhile will drop the elements until the given condition is satisfied and returns rest of the left elements.
+	val y = x.dropWhile(_ < 10)
+
+
+	// takeWhile will take the elements until the given condition is satisfied and returns these elements.
+	val y = x.takeWhile(_ < 13)
+
+
+	val y = x.filter(_ < 23)
+
+
+	// filterNot will return all the elements which does not satisfies the given condition and drops the rest. 
+	val y = x.filterNot(_ < 23)
+
+	```
+
+8) Subdivision operations: These operations include span, partition, splitAt, groupBy. These operations are utilized to break the elements of the collection and return some sub-collections.
+
+	```
+
+	val q = List(7, 9, 11, 15, 17, 19, 22)
+	// span will split the given Traversable collection of element into two parts
+	val r = q.span(_ < 15) // Output (List(7, 9, 11), List(15, 17, 19, 22))
+
+	// partition will divide the collection into two parts
+	val r = q.partition(_ < 35) // Output - (List(7, 9, 11),List(15, 17, 19, 22))
+
+	// splitAt will divide the elements of the collection into two parts in the given position
+	val r = q.splitAt(4) // Output - (List(7, 9, 11, 15),List(17, 19, 22))
+
+	```
+9) Element test methods: These methods include forall, exists, and count.
+	```
+	
+	val x = List(21, 20, 33, 40, 27, 62)
+	// Will return true if all the elements of the collection satisfies the given condition
+	val y = x forall (_ < 63) // Output true
+
+	// Will return true if some of the elements of the collection satisfies the given condition
+	val y = x exists (_ < 30)
+
+	// Will display the number of elements of the collection which satisfies the given condition.
+	val y = x count(_ < 40)
+
+	```
+
+
+10) Fold: reduceRight, reduceLeft, /: or foldLeft, :\ or foldRight.
+
+	```
+	val x = List(8, 6, 4, 2) 
+
+
+	// zero is an initial value. applies binary operation moving from left to right 
+	// and starting with the initial value.
+        // val y = x.foldLeft(0)(_ - _) or 
+        val y = (0 /: x)(_ - _)   
+	// expression evaluvates ((((0 - 8) - 6) - 4) - 2) = -20
+
+
+
+
+	// moving from left to right and ending with initial value.
+        // val y = x.foldRight(0)(_ - _) or 
+        val y = (x :\ 0)(_ - _) 
+	// expression evaluvates (8 - (6 - (4 - (2 - 0)))) = 4
+
+
+	// reduceLeft moves from left to right, initial value will be first item in collection.
+	val y = x.reduceLeft(_ - _) 
+	// expression evaluvates (((8 - 6) - 4) -2) = -4
+
+
+	// x.reduceRight moves from right to left, initial value will be first item in collection.
+	val y = x.reduceRight(_ - _)
+	// expression evaluvates (8 - (6 - (4 - 2))) = 4
+
+
+
+	```
+
+11) Specific fold : operations min, max, product, and sum
+
+
+	```
+
+	val x = List(3, 4, 7, 10)
+
+
+	val y = x.sum
+
+	val y = x.product
+
+	val y = x.max
+
+	val y = x.min
+
+
+	```
+
+
+12) String : operation addString, mkString, stringPrefix.
+
+
+	```
+
+	scala> val x = List(7, 8, 9, 10, 11)
+	x: List[Int] = List(7, 8, 9, 10, 11)
+	scala> val B = new StringBuilder("The numbers are: ")
+	B: StringBuilder = The numbers are:
+
+
+
+	scala> x.mkString(" < ")
+	res30: String = 7 < 8 < 9 < 10 < 11
+
+
+
+	// Operation where, “B” is a String builder and “, ” is a separator.
+	scala> x.addString(B, ", ")
+	res31: StringBuilder = The numbers are: 7, 8, 9, 10, 11
+
+
+
+	// stringPrefix will return the name of the collection used.
+	scala> x.stringPrefix 
+	res32: String = List
+
+
+
+	```
+
 
 ### Class
 
