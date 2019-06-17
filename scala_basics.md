@@ -1001,6 +1001,12 @@ Solution 2: you can also write first statement in your trait like “this:<Limit
 	// Applying map operation
 	val r = q.flatMap(_.map(_ + 3)) 
 
+	
+	val f = (i: Int) => List(i - 1, i, i + 1)
+	val list = List(5, 6, 7)
+	println(list.flatMap(f))
+	// prints List(4, 5, 6, 5, 6, 7, 6, 7, 8)
+
 
 
         val x = List(9, 3, 5, 11, 15, 4) 
@@ -1219,6 +1225,79 @@ Solution 2: you can also write first statement in your trait like “this:<Limit
 	scala> x.stringPrefix 
 	res32: String = List
 
+
+
+	```
+
+### Generic Class & Abstract Class
+
+Abstract Classes are used in 'has-a' or 'uses-a' relationships (e.g. a Cow eats Grass) where as generics are usually 'of' relationships (e.g. List of Ints)
+
+Generic classes are classes which take a type as a parameter.
+
+
+	```
+	Example 1:
+
+	class Stack[A] {
+
+	  private var elements: List[A] = Nil
+
+	  def push(x: A) { elements = x :: elements }
+
+	  def peek: A = elements.head
+
+	  def pop(): A = {
+	    val currentTop = peek
+	    elements = elements.tail
+	    currentTop
+	  }
+	}
+
+	val stack = new Stack[Int]
+	stack.push(1)
+
+
+
+	Example 2:
+
+	class Fruit
+	class Apple extends Fruit
+	class Banana extends Fruit
+
+	val stack = new Stack[Fruit]
+	val apple = new Apple
+	val banana = new Banana
+
+	stack.push(apple)
+	stack.push(banana)
+
+	```
+
+Abstract Classes
+
+	```
+	Example 1:
+
+	trait Foo {
+	  type T
+	  def value: T
+	}
+
+	object FooString extends Foo {
+	  type T = String
+	  def value: T = "ciao"
+	}
+
+	object FooInt extends Foo {
+	  type T = Int
+	  def value: T = 1
+	}
+
+	def getValue(f: Foo): f.T = f.value
+
+	val fs: String = getValue(FooString)
+	val fi: Int = getValue(FooInt)
 
 
 	```
