@@ -464,7 +464,15 @@ Other operations on Option
 	println(s “1 + 1 = ${1 + 1}”)
 
 
+	"Hello how are you".split(",").map(_.trim)
+
+	// Process one char at a time
+	"hello".filter(_ != 'l').map(_.toUpper)
+
+
 	println(f"$name is $height%1.2f meters tall")
+
+	toInt, toDouble, toFloat, toLong, toShort etc are used for conversions from string to a type.
 
 	```
 
@@ -1314,6 +1322,8 @@ Abstract Classes
 		def greet(){
 			println("Hello")
     		}
+
+		override def toString = "overriding the toString"
 	}
 
 	object CompanionObject{
@@ -1361,6 +1371,46 @@ Abstract Classes
 		
 		var vec = new Vehicle("Hundai")
 		vec.disp()	
+
+	```
+
+5) Implicit class - use Implicit Class to add methods to an object without modifying the source code of the object. 
+
+Implicit class 
+a) must be defined inside of another trait/class/object.
+b) There may not be any method, member or object in scope with the same name as the implicit class.
+c) They may only take one non-implicit argument in their constructor.
+   implicit class RichDate(date: java.util.Date) // OK!
+   implicit class Indexer[T](collection: Seq[T], index: Int) // BAD!
+   implicit class Indexer[T](collection: Seq[T])(implicit index: Index) // OK!
+
+	```
+	Ex 1:
+	object DonutImplicits {
+	 implicit class AugmentedDonut(donut: Donut) {
+	  def uuid: String = s"${donut.name} - ${donut.productCode.getOrElse(12345)}"
+	 }
+	}
+
+
+	Ex 2:
+	object Helpers {
+	  implicit class IntWithTimes(x: Int) {
+	    def times[A](f: => A): Unit = {
+	      def loop(current: Int): Unit =
+	        if(current > 0) {
+	          f
+ 	         loop(current - 1)
+ 	       }
+	      loop(x)
+	    }
+	  }
+	}
+	
+	import Helpers._
+	5 times println("HI") This is equivalent to val c = new IntWithTimes(4); c.times(println("hello"))
+
+	
 
 	```
 
