@@ -1,0 +1,4 @@
+instanceDetails=`aws ec2 describe-instances | jq -r '.Reservations[] | .Instances[] | select(.Tags[].Value=="Test_EC2")'`
+privateIP=`echo $instanceDetails | jq -r '.PrivateIpAddress'`
+
+aws ec2 describe-instances | jq -r '.Reservations[] | .Instances[] | .PrivateIpAddress'
